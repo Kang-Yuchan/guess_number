@@ -33,13 +33,14 @@ function playGame() {
     alert("おーー！！大正解！！");
   } else if (isCurrect <= -10) {
     alert("もっと大きい数字だよ？");
-  } else if (-10 < isCurrect < 0) {
+  } else if (-10 < isCurrect && isCurrect < 0) {
     alert("んーーちょっとだけ大きい数字だよ？");
-  } else if (0 < isCurrect < 10) {
+  } else if (0 < isCurrect && isCurrect < 10) {
     alert("んーちょっとだけ小さい数字だよ？");
   } else if (isCurrect > 10) {
     alert("もっと小さい数字だよ？");
   }
+  console.log(randomNumber[0]);
 }
 
 /**
@@ -69,7 +70,7 @@ function resetResultContent() {
  */
 function getRandomNumber() {
   // *CODE GOES BELOW HERE *
-  return Math.floor(Math.random() * 100);
+  return Math.floor(Math.random() * 100) + 1;
 }
 
 /**
