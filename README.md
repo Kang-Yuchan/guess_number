@@ -1,3 +1,3 @@
 # Guess The Number
 
-## JS Exercice Toy Project
+JS Exercice Toy Project
