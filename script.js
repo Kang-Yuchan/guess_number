@@ -4,7 +4,7 @@
  * DONE: Generate a random number 1 to 100 and save it to variable correctNumber
  * DONE: Console whether the guess is too high, too low, or is correct inside playGame function
  * DONE: Create a function called displayResult to move the logic for if the guess is too high, too low, or correct
- * TODO: Complete the showYouWon, showNumberAbove, showNumberBelow
+ * DONE: Complete the showYouWon, showNumberAbove, showNumberAboveTen, showNumberBelow, showNumberBelowTen
  * TODO: Use the showYouWon... functions within displayResult to display the correct dialog
  * TODO: Save the guess history in a variable called guess
  * TODO: Display the guess history using displayHistory() function
@@ -38,15 +38,15 @@ function playGame() {
 // *CODE GOES BELOW HERE *
 function displayResult(isCurrect) {
   if (isCurrect === 0) {
-    alert("おーー！！大正解！！");
+    showYouWon();
   } else if (isCurrect <= -10) {
-    alert("もっと大きい数字だよ？");
+    showNumberBelowTen();
   } else if (-10 < isCurrect && isCurrect < 0) {
-    alert("んーーちょっとだけ大きい数字だよ？");
+    showNumberBelow();
   } else if (0 < isCurrect && isCurrect < 10) {
-    alert("んーちょっとだけ小さい数字だよ？");
-  } else if (isCurrect > 10) {
-    alert("もっと小さい数字だよ？");
+    showNumberAbove();
+  } else if (isCurrect >= 10) {
+    showNumberAboveTen();
   }
 }
 
@@ -118,37 +118,61 @@ function getDialog(dialogType, text) {
 }
 
 function showYouWon() {
-  const text = "Awesome job, you got it!";
+  const text = "大正解！！";
   /**
    * Retrieve the dialog using the getDialog() function
    * and save it to variable called dialog
    * HINT: Use the 'won' and text parameters
    */
   // *CODE GOES BELOW HERE *
+  let dialog = getDialog("won", text);
+  document.getElementById("result").innerHTML = dialog;
+}
 
+function showNumberAboveTen() {
+  const text = "もっと小さい数字だよ？";
+  /**
+   * Retrieve the dialog using the getDialog() function
+   * and save it to variable called dialog
+   * HINT: Use the 'warning' and text parameters
+   */
+  // *CODE GOES BELOW HERE *
+  let dialog = getDialog("warning", text);
   document.getElementById("result").innerHTML = dialog;
 }
 
 function showNumberAbove() {
-  const text = "Your guess is too high!";
+  const text = "ちょっとだけ小さい数字だよ？";
   /**
    * Retrieve the dialog using the getDialog() function
    * and save it to variable called dialog
    * HINT: Use the 'warning' and text parameters
    */
   // *CODE GOES BELOW HERE *
+  let dialog = getDialog("warning", text);
+  document.getElementById("result").innerHTML = dialog;
+}
 
+function showNumberBelowTen() {
+  const text = "もっと大きい数字だよ？";
+  /**
+   * Retrieve the dialog using the getDialog() function
+   * and save it to variable called dialog
+   * HINT: Use the 'warning' and text parameters
+   */
+  // *CODE GOES BELOW HERE *
+  let dialog = getDialog("warning", text);
   document.getElementById("result").innerHTML = dialog;
 }
 
 function showNumberBelow() {
-  const text = "Your guess is too low!";
+  const text = "ちょっとだけ大きい数字だよ？";
   /**
    * Retrieve the dialog using the getDialog() function
    * and save it to variable called dialog
    * HINT: Use the 'warning' and text parameters
    */
   // *CODE GOES BELOW HERE *
-
+  let dialog = getDialog("warning", text);
   document.getElementById("result").innerHTML = dialog;
 }
