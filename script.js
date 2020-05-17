@@ -1,9 +1,9 @@
 /**
  * Guess The Number Game
- * TODO: Get user value from input and save it to variable numberGuess
- * TODO: Generate a random number 1 to 100 and save it to variable correctNumber
- * TODO: Console whether the guess is too high, too low, or is correct inside playGame function
- * TODO: Create a function called displayResult to move the logic for if the guess is too high, too low, or correct
+ * DONE: Get user value from input and save it to variable numberGuess
+ * DONE: Generate a random number 1 to 100 and save it to variable correctNumber
+ * DONE: Console whether the guess is too high, too low, or is correct inside playGame function
+ * DONE: Create a function called displayResult to move the logic for if the guess is too high, too low, or correct
  * TODO: Complete the showYouWon, showNumberAbove, showNumberBelow
  * TODO: Use the showYouWon... functions within displayResult to display the correct dialog
  * TODO: Save the guess history in a variable called guess
@@ -15,11 +15,10 @@
 
 // Variable for store the correct random number
 
-let randomNumber = [];
+let randomNumber = getRandomNumber();
 window.onload = function () {
   document.getElementById("number-submit").addEventListener("click", playGame);
   document.getElementById("restart-game").addEventListener("click", initGame);
-  randomNumber.push(getRandomNumber());
 };
 
 /**
@@ -28,7 +27,16 @@ window.onload = function () {
 function playGame() {
   // *CODE GOES BELOW HERE *
   const myGuess = document.getElementById("number-guess").value;
-  const isCurrect = parseInt(myGuess) - randomNumber[0];
+  const isCurrect = parseInt(myGuess) - randomNumber;
+  displayResult(isCurrect);
+}
+
+/**
+ * Show the result for if the guess it too high, too low, or correct
+ * HINT: Use if, else if, else statement
+ */
+// *CODE GOES BELOW HERE *
+function displayResult(isCurrect) {
   if (isCurrect === 0) {
     alert("おーー！！大正解！！");
   } else if (isCurrect <= -10) {
@@ -40,14 +48,7 @@ function playGame() {
   } else if (isCurrect > 10) {
     alert("もっと小さい数字だよ？");
   }
-  console.log(randomNumber[0]);
 }
-
-/**
- * Show the result for if the guess it too high, too low, or correct
- * HINT: Use if, else if, else statement
- */
-// *CODE GOES BELOW HERE *
 
 /**
  * Initialize a new game by resetting all values and content on the page
