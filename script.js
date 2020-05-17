@@ -7,7 +7,7 @@
  * DONE: Complete the showYouWon, showNumberAbove, showNumberAboveTen, showNumberBelow, showNumberBelowTen
  * DONE: Use the showYouWon... functions within displayResult to display the correct dialog
  * DONE: Save the guess history in a variable called guess
- * TODO: Display the guess history using displayHistory() function
+ * DONE: Display the guess history using displayHistory() function
  * TODO: Use the initGame() function to restart the game
  */
 
@@ -28,8 +28,9 @@ function playGame() {
   // *CODE GOES BELOW HERE *
   const myGuess = document.getElementById("number-guess").value;
   const isCurrect = parseInt(myGuess) - randomNumber;
-  displayResult(isCurrect);
   saveGuessHistory(myGuess);
+  displayHistory();
+  displayResult(isCurrect);
 }
 
 /**
@@ -94,9 +95,15 @@ function saveGuessHistory(guess) {
  * HINT: use while loop and string concatentation to create a list of guesses
  */
 function displayHistory() {
-  let index; // TODO
+  let index = 0; // TODO
   let list = "<ul class='list-group'>";
   // *CODE GOES BELOW HERE *
+  //for (index; index < guesses.length; index++) {
+  //  list += `<li class='list-group-item'>君の回答: ${guesses[index]}</li>`;
+  //} Use index and for loop
+  guesses.forEach((i) => {
+    list += `<li class='list-group-item'>君の回答: ${i}</li>`;
+  });
   list += "</ul>";
   document.getElementById("history").innerHTML = list;
 }
