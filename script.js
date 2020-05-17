@@ -8,7 +8,7 @@
  * DONE: Use the showYouWon... functions within displayResult to display the correct dialog
  * DONE: Save the guess history in a variable called guess
  * DONE: Display the guess history using displayHistory() function
- * TODO: Use the initGame() function to restart the game
+ * DONE: Use the initGame() function to restart the game
  */
 
 // Variable to store the list of guesses
@@ -58,6 +58,11 @@ function displayResult(isCurrect) {
  */
 function initGame() {
   // *CODE GOES BELOW HERE *
+
+  randomNumber = getRandomNumber();
+  guesses = [];
+  displayHistory();
+  resetResultContent();
 }
 
 /**
@@ -65,6 +70,7 @@ function initGame() {
  */
 function resetResultContent() {
   document.getElementById("result").innerHTML = "";
+  document.getElementById("number-guess").value = "";
 }
 
 /**
